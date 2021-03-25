@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="mx-auto d-block">
+      <div class="text-center">
+        <h2>To-Do List</h2>
+      </div>
+     <ul class="list-group" >
+           
+              <li style="list-style-type: none;" class="list-group-item" *ngFor="let task of tasks; index as i">
+                      {{i + 1}}. {{ task.name | uppercase }}  
+                      <button class="btn btn-sm btn-info" (click)="toggleDetails(i)">Toggle Details</button> &nbsp;
+                    
+
+
+                    <app-task-description [task]='task' *ngIf="task.moreDetails"
+                    (deleteItem) = "delTask($event,i)"></app-task-description>
+              </li>
+      </ul>
+    </div>
+</div>
